@@ -1,5 +1,6 @@
+# [kame.ya](https://blog.lkameya.com/)
 
-<h1 align="center">
-  Personal blog built with Gatsby Blog Starter
-</h1>
+Personal Blog. Forked from [Gatsby blog starter](https://github.com/gatsbyjs/gatsby-starter-blog). 
+
+To run locally, `yarn`, then `yarn dev`, then open https://localhost:8000.
 
