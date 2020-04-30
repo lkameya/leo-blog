@@ -8,7 +8,7 @@ Wordpress2016.overrideThemeStyles = () => {
       boxShadow: `none`,
     },
     "h1": {
-      fontSize: `3rem !important`,
+      fontSize: `2rem !important`,
     }
   }
 }
