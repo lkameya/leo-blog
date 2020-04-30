@@ -20,3 +20,20 @@ Oh, and here's a great quote from this Wikipedia on
 > firm-textured, round yolk that is bright orange-red in color.
 
 ![Chinese Salty Egg](./salty_egg.jpg)
+
+
+```jsx{6}
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  return (
+    <div>
+      <p>You clicked {count} times</p>
+      <button onClick={() => setCount(count + 1)}>
+        Click me
+      </button>
+    </div>
+  );
+}
+```
+
