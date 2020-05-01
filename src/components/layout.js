@@ -2,9 +2,6 @@ import React, { useEffect, useState } from "react"
 import { Link } from "gatsby"
 import { rhythm, scale } from "../utils/typography"
 import GlobalStyles from '../utils/global';
-import Switch from 'react-switch';
-import { shade } from 'polished';
-import { ThemeContext } from 'styled-components';
 import Toggle from './Toggle';
 import sun from '../assets/sun.png';
 
@@ -23,12 +20,9 @@ const Layout = ({ location, title, children, toggleTheme }) => {
   const [theme, setTheme] = useState(websiteTheme);
 
   useEffect(() => {
-    console.log(theme);
     setTheme(window.__theme);
 
     window.__onThemeChange = () => {
-      console.log('mudei');
-      console.log(window.__theme);
       setTheme(window.__theme)
     }
   }, []);

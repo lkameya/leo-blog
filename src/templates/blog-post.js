@@ -80,8 +80,8 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
                 </Link>
               )}
             </li>
-          </ul>6
-      </nav>
+          </ul>
+        </nav>
       </Layout>
     </ThemeProvider>
   )
