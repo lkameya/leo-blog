@@ -1,26 +1,34 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import { Link, graphql } from "gatsby"
 import { ThemeProvider } from 'styled-components';
-import light from '../themes/light';
-import dark from '../themes/dark';
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { rhythm } from "../utils/typography"
-import usePersistedState from '../utils/usePersistedState';
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title
   const posts = data.allMarkdownRemark.edges
-  const [theme, setTheme] = usePersistedState('theme', light);
 
-  const toggleTheme = () => {
-    setTheme(theme.name === 'light' ? dark : light);
+  let websiteTheme;
+  if (typeof window !== `undefined`) {
+    websiteTheme = window.__theme;
+  }
+
+  const [theme, setTheme] = useState(websiteTheme);
+
+  const styledTheme = {
+    name: theme
+  };
+
+  const ThemeToggle = () => {
+    window.__setPreferredTheme(window.__theme === 'dark' ? 'light' : 'dark');
+    setTheme(theme => theme === 'dark' ? 'light' : 'dark');
   }
 
   return (
-    <ThemeProvider theme={theme}>
-      <Layout location={location} title={siteTitle} toggleTheme={toggleTheme}>
+    <ThemeProvider theme={styledTheme}>
+      <Layout location={location} title={siteTitle} toggleTheme={ThemeToggle}>
         <SEO title="All posts" />
         <Bio />
         {posts.map(({ node }) => {
@@ -28,11 +36,7 @@ const BlogIndex = ({ data, location }) => {
           return (
             <article key={node.fields.slug}>
               <header>
-                <h3
-                  style={{
-                    marginBottom: rhythm(1 / 4),
-                  }}
-                >
+                <h3>
                   <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
                     {title}
                   </Link>
@@ -50,7 +54,7 @@ const BlogIndex = ({ data, location }) => {
           )
         })}
       </Layout>
-    </ThemeProvider>
+    </ThemeProvider >
   )
 }
 

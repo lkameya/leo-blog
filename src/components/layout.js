@@ -1,4 +1,4 @@
-import React, { useContext } from "react"
+import React, { useEffect, useState } from "react"
 import { Link } from "gatsby"
 import { rhythm, scale } from "../utils/typography"
 import GlobalStyles from '../utils/global';
@@ -14,7 +14,25 @@ import moon from '../assets/moon.png';
 const Layout = ({ location, title, children, toggleTheme }) => {
   const rootPath = `${__PATH_PREFIX__}/`
   let header
-  const { colors, name } = useContext(ThemeContext);
+
+  let websiteTheme
+  if (typeof window !== `undefined`) {
+    websiteTheme = window.__theme
+  }
+
+  const [theme, setTheme] = useState(websiteTheme);
+
+  useEffect(() => {
+    console.log(theme);
+    setTheme(window.__theme);
+
+    window.__onThemeChange = () => {
+      console.log('mudei');
+      console.log(window.__theme);
+      setTheme(window.__theme)
+    }
+  }, []);
+
 
   if (location.pathname === rootPath) {
     header = (
@@ -57,18 +75,9 @@ const Layout = ({ location, title, children, toggleTheme }) => {
               />
             ),
           }}
-          checked={name === 'dark'}
-          onChange={() => toggleTheme()}
+          checked={theme === 'dark'}
+          onChange={toggleTheme}
         />
-        {/* <Switch
-          onChange={() => { toggleTheme() }}
-          checked={name === 'light'}
-          checkedIcon={<img src="../assets/sun.png" />}
-          uncheckedIcon={false}
-          // handleDiameter={20}
-          offColor={shade(0.15, colors.primary)}
-          onColor={colors.secondary}
-        /> */}
       </>
     )
   } else {
@@ -90,7 +99,30 @@ const Layout = ({ location, title, children, toggleTheme }) => {
             {title}
           </Link>
         </h3>
-
+        <Toggle
+          icons={{
+            checked: (
+              <img
+                src={moon}
+                width="16"
+                height="16"
+                role="presentation"
+                style={{ pointerEvents: 'none' }}
+              />
+            ),
+            unchecked: (
+              <img
+                src={sun}
+                width="16"
+                height="16"
+                role="presentation"
+                style={{ pointerEvents: 'none' }}
+              />
+            ),
+          }}
+          checked={theme === 'dark'}
+          onChange={toggleTheme}
+        />
       </>
     )
   }
@@ -102,7 +134,7 @@ const Layout = ({ location, title, children, toggleTheme }) => {
           marginLeft: `auto`,
           marginRight: `auto`,
           maxWidth: rhythm(24),
-          padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
+          padding: `2.625rem ${rhythm(3 / 4)}`,
         }}
       >
         <header className="main-header">{header}</header>
