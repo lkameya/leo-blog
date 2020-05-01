@@ -21,7 +21,7 @@ function Bio() {
           borderRadius: '50%',
         }}
       />
-      <p style={{ maxWidth: 310 }}>
+      <p style={{ maxWidth: 250 }}>
         Personal blog by{' '}
         <a href="https://mobile.twitter.com/leo_kameya">Leo Kameya</a>{' '}
           Full-Stack Musician
