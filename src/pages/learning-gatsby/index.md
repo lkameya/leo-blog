@@ -1,12 +1,12 @@
 ---
 title: Learning Gatsby
 date: "2020-05-09T00:00:32.169Z"
-description: Learning Gatsby and personal thoughts about the framework
+description: Looking for a better static web page solution?
 ---
 
 Gatsby is a framework that uses React and GraphQL to build static web pages.
 
-### Why Gatsby?
+## Why Gatsby?
 
 We have all the benefits of React and GraphQL.
 
@@ -18,6 +18,6 @@ Gatsby comes with an extensive collection of plugins to add functionality to you
 
 Initially, I have built my blog into WordPress environment, so I decided to move to Gatsby for learning purposes, and I was surprised by its performance. I won't go back to WordPress. Now I can manage my posts by writing Markdown files and committing them to my GitHub.
 
-Therefore, there will be no database layer in my blog and no server at all!
+Another point is there will be no database layer in my blog and no server at all!
 
 I will try to build my next landing pages using Gatsby.
