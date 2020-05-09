@@ -24,7 +24,7 @@ function Bio() {
       <p style={{ maxWidth: 250 }}>
         Personal blog by{" "}
         <a href="https://mobile.twitter.com/leo_kameya">Leo Kameya</a>
-        &nbsp;Software Developer
+        <p>Software Developer</p>
       </p>
     </div>
   )
