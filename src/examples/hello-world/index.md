@@ -1,7 +1,7 @@
 ---
-title: Hello World
-date: "2015-05-01T22:12:03.284Z"
-description: "Hello World"
+title: Gatsby
+date: "2020-05-09T00:00:03.284Z"
+description: "Gatsby"
 ---
 
 This is my first post on my new fake blog! How exciting!
@@ -21,19 +21,15 @@ Oh, and here's a great quote from this Wikipedia on
 
 ![Chinese Salty Egg](./salty_egg.jpg)
 
-
 ```jsx{6}
 function Counter() {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(0)
 
   return (
     <div>
       <p>You clicked {count} times</p>
-      <button onClick={() => setCount(count + 1)}>
-        Click me
-      </button>
+      <button onClick={() => setCount(count + 1)}>Click me</button>
     </div>
-  );
+  )
 }
 ```
-

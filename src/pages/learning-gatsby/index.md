@@ -6,7 +6,7 @@ description: Learning Gatsby and personal thoughts about the framework
 
 Gatsby is a framework that uses React and GraphQL to build static web pages.
 
-### Why should I use Gatsby?
+### Why Gatsby?
 
 We have all the benefits of React and GraphQL.
 
